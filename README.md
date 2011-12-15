@@ -1,5 +1,12 @@
 Generates a well-formed and unique URI from an array of strings.
 
+Setup
+-----
+
+    $ gem install baptist
+
+Or add it to your Gemfile.
+
 Usage
 -----
 

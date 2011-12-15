@@ -10,9 +10,10 @@ Or add it to your Gemfile.
 Usage
 -----
 
-    Baptist.generate('Arthur Russell')                             => 'Arthur-Russell'
-    Baptist.generate('Arthur Russell', :space => '_')              => 'Arthur_Russell'
-    Baptist.generate(['Arthur Russell', 'Calling Out of Context']) => 'Arthur-Russell/Calling-Out-of-Context'
+    Baptist.generate('Arthur Russell')                             # => 'Arthur-Russell'
+    Baptist.generate('Arthur Russell', :space => '_')              # => 'Arthur_Russell'
+    Baptist.generate(['Arthur Russell', 'Calling Out of Context']) # => 'Arthur-Russell/Calling-Out-of-Context'
+    Baptist.generate(['Rihanna', 'Loud'], :modifier => 'Explicit') # => 'Rihanna/Loud-(Explicit)'
 
 Percent encoding
 ----------------
@@ -41,6 +42,7 @@ Options
 
 * <code>:space</code> - Space character (default: '-')
 * <code>:separator</code> - Separator character (default: '/')
+* <code>:modifier</code> - Will add a modifier string in paranteses at the end of the generated URI
 * <code>:multiplier</code> - The object to multiply with to find a unique URI (default: 1)
 * <code>:encoding</code> - Force this encoding (default: 'UTF-8')
 

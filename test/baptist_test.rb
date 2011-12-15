@@ -14,6 +14,7 @@ class BaptistTest < Test::Unit::TestCase
   def test_multiple_names
     assert_equal 'Arthur-Russell/Calling-Out-of-Context', Baptist.generate(['Arthur Russell', 'Calling Out of Context'])
     assert_equal 'Arthur-Russell|Calling-Out-of-Context', Baptist.generate(['Arthur Russell', 'Calling Out of Context'], :separator => '|')
+    assert_equal 'Arthur-Russell/Calling-Out-of-Context', Baptist.generate(['Arthur Russell', nil, 'Calling Out of Context'])
   end
 
   def test_strange_characters

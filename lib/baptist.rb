@@ -41,13 +41,13 @@ module Baptist
   #   :multiplier - The object to multiply with to find a unique URI (default: 1)
   #   :encoding - Force this encoding (default: 'UTF-8')
   #
-  def generate(names, options = {})
+  def generate(names = [], options = {})
     options = { :space => SPACE,
                 :separator => SEPARATOR,
                 :multiplier => MULTIPLIER,
                 :encoding => ENCODING }.merge(options)
 
-    names = names.is_a?(Array) ? names : [names]
+    names = (names.is_a?(Array) ? names : [names]).compact
     names = names.map do |name|
       escape(name, options)
     end

@@ -10,6 +10,7 @@ Or add it to your Gemfile.
 Usage
 -----
 
+    Baptist.generate                                               # => 'hMAkUyhyqdPkSDWHaUtptQ'
     Baptist.generate('Arthur Russell')                             # => 'Arthur-Russell'
     Baptist.generate('Arthur Russell', :space => '_')              # => 'Arthur_Russell'
     Baptist.generate(['Arthur Russell', 'Calling Out of Context']) # => 'Arthur-Russell/Calling-Out-of-Context'

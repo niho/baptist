@@ -31,4 +31,9 @@ class BaptistTest < Test::Unit::TestCase
     assert_equal 'John-Doe-***', Baptist.generate('John Doe', :multiplier => '*') {|uri| uri == 'John-Doe-***' }
   end
 
+  def test_generate_name
+    assert_equal 22, Baptist.generate.size
+    assert Baptist.generate != Baptist.generate
+  end
+
 end

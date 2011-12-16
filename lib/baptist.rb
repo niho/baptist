@@ -1,4 +1,6 @@
 require "baptist/version"
+require "base64"
+require "digest/md5"
 
 # A tool for generating unique and well-formed URIs.
 module Baptist
@@ -12,6 +14,7 @@ module Baptist
   #
   # === Usage
   #
+  #   Baptist.generate                                               # => 'hMAkUyhyqdPkSDWHaUtptQ'
   #   Baptist.generate('Arthur Russell')                             # => 'Arthur-Russell'
   #   Baptist.generate('Arthur Russell', :space => '_')              # => 'Arthur_Russell'
   #   Baptist.generate(['Arthur Russell', 'Calling Out of Context']) # => 'Arthur-Russell/Calling-Out-of-Context'
@@ -48,6 +51,7 @@ module Baptist
                 :encoding => ENCODING }.merge(options)
 
     names = (names.is_a?(Array) ? names : [names]).compact
+    names = [generate_name] if names.empty?
     names = names.map do |name|
       escape(name, options)
     end
@@ -69,6 +73,13 @@ module Baptist
   module_function :generate
 
 protected
+
+  def generate_name
+    Base64.encode64(
+      Digest::MD5.digest("#{Time.now}-#{(0...50).map{ ('a'..'z').to_a[rand(26)] }.join}")
+    ).gsub('/','x').gsub('+','y').gsub('=','').strip
+  end
+  module_function :generate_name
 
   def escape(s, options = {})
     s = encode(s, options[:encoding])

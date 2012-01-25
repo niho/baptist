@@ -60,6 +60,7 @@ module Baptist
       (options[:modifier] ? "#{options[:space]}(#{escape(options[:modifier], options)})" : '')
 
     if block_given?
+      return uri if yield(uri)
       (1..100).each do |i|
         s = uri + options[:space] + (options[:multiplier] * i).to_s
         if yield(s)

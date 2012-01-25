@@ -26,6 +26,7 @@ class BaptistTest < Test::Unit::TestCase
   end
 
   def test_unique
+    assert_equal 'John-Doe', Baptist.generate('John Doe') {|uri| true }
     assert_equal 'John-Doe-3', Baptist.generate('John Doe') {|uri| uri == 'John-Doe-3' }
     assert_equal 'John-Doe-1000', Baptist.generate('John Doe', :multiplier => 10) {|uri| uri == 'John-Doe-1000' }
     assert_equal 'John-Doe-***', Baptist.generate('John Doe', :multiplier => '*') {|uri| uri == 'John-Doe-***' }

@@ -40,7 +40,7 @@ module Baptist
   #
   #   :space - Space character (default: '-')
   #   :separator - Separator character (default: '/')
-  #   :modifier - Will add a modifier string in paranteses at the end of the generated URI
+  #   :modifier - Will add a modifier string in parentheses at the end of the generated URI
   #   :multiplier - The object to multiply with to find a unique URI (default: 1)
   #   :encoding - Force this encoding (default: 'UTF-8')
   #

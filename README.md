@@ -43,7 +43,7 @@ Options
 
 * <code>:space</code> - Space character (default: '-')
 * <code>:separator</code> - Separator character (default: '/')
-* <code>:modifier</code> - Will add a modifier string in paranteses at the end of the generated URI
+* <code>:modifier</code> - Will add a modifier string in parentheses at the end of the generated URI
 * <code>:multiplier</code> - The object to multiply with to find a unique URI (default: 1)
 * <code>:encoding</code> - Force this encoding (default: 'UTF-8')
 

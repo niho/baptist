@@ -18,6 +18,7 @@ class BaptistTest < Test::Unit::TestCase
   end
 
   def test_strange_characters
+    assert_equal "-_.!~*'()", Baptist.generate("-_.!~*'()")
     assert_equal 'Tr%C3%A4d%2C-Gr%C3%A4s-och-Stenar', Baptist.generate('Träd, Gräs och Stenar')
   end
 

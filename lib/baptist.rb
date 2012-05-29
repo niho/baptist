@@ -86,13 +86,13 @@ protected
     s = encode(s, options[:encoding])
     regexp = case
       when RUBY_VERSION >= "1.9" && s.encoding === Encoding.find('UTF-8')
-        /([^ a-zA-Z0-9_\.\-!~*'()]+)/u
+        /([^ a-zA-Z0-9_\.\-!~*'()\/]+)/u
       else
-        /([^ a-zA-Z0-9_\.\-!~*'()]+)/n
+        /([^ a-zA-Z0-9_\.\-!~*'()\/]+)/n
       end
     s.to_s.gsub(regexp) {
       '%'+$1.unpack('H2'*bytesize($1)).join('%').upcase
-    }.tr(' ', options[:space])
+    }.tr(' ', options[:space]).tr('/', options[:space])
   end
   module_function :escape
 
